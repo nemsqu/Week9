@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Week9</string>
+    <string name="date">Date (dd.mm.yyyy)</string>
+    <string name="time">Time</string>
+    <string name="name_of_movie">Name of movie</string>
+    <string name="search">Search</string>
+    <string name="starts_after">Starts after (HH:MM:SS)</string>
+    <string name="starts_before">Starts before (HH:MM:SS)</string>
+</resources>
