@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         String chosenEnd = "23:59:59"; //shows that start before this
         String name = "";
         int flag = 0;
-        if(chosenDate.equals("")){ 
+        if(chosenDate.equals("")){
             chosenDate = "13.08.2020";
         }
         if(!startBefore.getText().toString().equals("")){
