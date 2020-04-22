@@ -35,14 +35,25 @@ public class TheaterShowingsAdapter extends RecyclerView.Adapter<TheaterShowings
         // Provide a suitable constructor (depends on the kind of dataset)
         public TheaterShowingsAdapter(List<XmlParser.Show> shows, String start, String end, String movie, TheaterCollection theaters) {
 
-                for (int i=0; i<shows.size(); i++) {
+            DateFormat formatter = new SimpleDateFormat("hh:mm:ss");
+            try {
+                Date startTime = formatter.parse(start);
+                Date endTime = formatter.parse(end);
+                for (int i = 0; i < shows.size(); i++) {
                     XmlParser.Show show = (XmlParser.Show) shows.get(i);
-
-                    if (show.getMovieName().equals(movie)) {
+                    String[] startTimeLong = show.getStart().split("T");
+                    String startTimeMovie = startTimeLong[1];
+                    Date showStart = formatter.parse(startTimeMovie);
+                    System.out.println(show.getMovieName());
+                    if (show.getMovieName().equals(movie) && !(showStart.compareTo(startTime) <= 0) && !(showStart.compareTo(endTime) >= 0)) {
                         list.add(show);
+
                     }
                 }
-                this.theaters = theaters;
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            this.theaters = theaters;
         }
 
         // Create new views (invoked by the layout manager)
